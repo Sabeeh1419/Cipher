@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Time Pad Encryption</title>
+    <link rel="stylesheet" href="o-t-p-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 One-Time Pad Encryption</h1>
+        <p class="subtitle">Securely encrypt and decrypt messages using the One-Time Pad cipher.</p>
+
+        <div class="input-group">
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Enter your message"></textarea>
+        </div>
+
+        <div class="input-group">
+            <label for="key">Key:</label>
+            <textarea id="key" placeholder="Enter your key (must be the same length as the message)"></textarea>
+        </div>
+
+        <div class="buttons">
+            <button class="btn encrypt-btn" onclick="encrypt()">Encrypt</button>
+            <button class="btn decrypt-btn" onclick="decrypt()">Decrypt</button>
+        </div>
+
+        <div class="input-group">
+            <label for="result">Result:</label>
+            <textarea id="result" readonly></textarea>
+        </div>
+        <a href="index.html" class="btn back-btn">Back to Cipher Selection</a>
+    </div>
+
+    <script src="o-t-p-script.js"></script>
+</body>
+</html>

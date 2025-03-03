@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+    <link rel="stylesheet" href="Caesarstyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Caesar Cipher</h1>
+        <p class="subtitle">Encrypt and decrypt messages using the Caesar Cipher technique.</p>
+
+        <!-- Input Fields -->
+        <div class="input-group">
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Enter your message"></textarea>
+        </div>
+
+        <div class="input-group">
+            <label for="shift">Shift Value:</label>
+            <input type="number" id="shift" placeholder="Enter shift value (e.g., 3)" min="1" max="25">
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <button class="btn encrypt-btn" onclick="encrypt()">Encrypt</button>
+            <button class="btn decrypt-btn" onclick="decrypt()">Decrypt</button>
+        </div>
+
+        <!-- Result -->
+        <div class="input-group">
+            <label for="result">Result:</label>
+            <textarea id="result" readonly></textarea>
+        </div>
+        <a href="index.html" class="btn back-btn">Back to Cipher Selection</a>
+    </div>
+
+    <script src="Caesarscript.js"></script>
+</body>
+</html>
