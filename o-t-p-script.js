@@ -1,6 +1,21 @@
+function generateKey(length) {
+    let key = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < length; i++) {
+        key += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return key;
+}
+
 function encrypt() {
     const message = document.getElementById('message').value;
-    const key = document.getElementById('key').value;
+    let key = document.getElementById('key').value;
+
+    // If key is empty, generate a random key
+    if (!key) {
+        key = generateKey(message.length);
+        document.getElementById('key').value = key; // Display the generated key
+    }
 
     if (message.length !== key.length) {
         alert("Message and key must be of the same length!");
@@ -19,6 +34,11 @@ function encrypt() {
 function decrypt() {
     const encryptedMessage = document.getElementById('message').value;
     const key = document.getElementById('key').value;
+
+    if (!key) {
+        alert("Key is required for decryption!");
+        return;
+    }
 
     if (encryptedMessage.length !== key.length) {
         alert("Encrypted message and key must be of the same length!");

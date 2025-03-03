@@ -1,3 +1,12 @@
+function generateKey(length) {
+    let key = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < length; i++) {
+        key += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return key;
+}
+
 function encryptColumnarTransposition(message, key) {
     const keyLength = key.length;
     const messageLength = message.length;
@@ -82,11 +91,14 @@ function getKeyOrder(key) {
 
 function encrypt() {
     const message = document.getElementById('message').value;
-    const key = document.getElementById('key').value;
+    let key = document.getElementById('key').value;
+
+    // If key is empty, generate a random key
     if (!key) {
-        alert("Please enter a key.");
-        return;
+        key = generateKey(message.length);
+        document.getElementById('key').value = key; // Display the generated key
     }
+
     const encryptedMessage = encryptColumnarTransposition(message, key);
     document.getElementById('result').value = encryptedMessage;
 }
@@ -94,10 +106,12 @@ function encrypt() {
 function decrypt() {
     const message = document.getElementById('message').value;
     const key = document.getElementById('key').value;
+
     if (!key) {
         alert("Please enter a key.");
         return;
     }
+
     const decryptedMessage = decryptColumnarTransposition(message, key);
     document.getElementById('result').value = decryptedMessage;
 }
